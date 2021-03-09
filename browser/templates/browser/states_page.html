@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Info - {{state.name}}</title>
+
+    <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css">
+</head>
+<body>
+    <div class="small-container">
+        <h4>Travel Info on {{state.name}}</h4>
+
+        <p>{{state.name}} has {{state.terminal_set.count}} terminal(s)</p>
+        <div class="flex-row">
+            <div class="flex-small">
+                <h5>Terminals in state</h5>
+                {% if state.terminal_set.count > 0 %}
+                <ul>
+                    {% for terminal in state.terminal_set.all %}
+                        <li><a href="/terminals/{{terminal.terminal_id}}">{{terminal.name}}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+
+            <div class="flex-small">
+                <h5>Destination terminals</h5>
+                <p>In a bit, we would tell you the states and terminals you can travel to from here</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

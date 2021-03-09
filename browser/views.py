@@ -33,3 +33,31 @@ def terminals_new(request):
         form = TerminalForm()
 
     return render(request, 'browser/terminals_new.html', {'form': form})
+
+def terminals_edit(request):
+    return render(request, 'browser/terminals_edit.html')
+
+def terminals_all(request):
+    terminals = Terminal.objects.all()
+
+    context = {'terminals': terminals}
+    return render(request, 'browser/terminals_all.html', context)
+
+def terminals_page(request, terminal_id):
+    terminal = Terminal.objects.get(terminal_id=terminal_id)
+
+    context = {'terminal': terminal}
+    return render(request, 'browser/terminals_page.html', context)
+
+def states_all(request):
+    states = State.objects.all()
+
+    context = {'states': states}
+    return render(request, 'browser/states_all.html', context)
+
+def states_page(request, state_id):
+    state = State.objects.get(state_id=state_id)
+
+    context = {'state': state}
+    return render(request, 'browser/states_page.html', context)
+
