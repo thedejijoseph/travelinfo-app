@@ -21,12 +21,14 @@
                         <li><a href="/terminals/{{terminal.terminal_id}}">{{terminal.name}}</a></li>
                     {% endfor %}
                 </ul>
+                {% else %}
+                <p>There are no terminals in this state yet</p>
                 {% endif %}
             </div>
 
             <div class="flex-small">
                 <h5>Destination terminals</h5>
-                <p>In a bit, we would tell you the states and terminals you can travel to from here</p>
+                <p>In a bit, we would aggregate info and tell you the states and terminals you can travel to from here</p>
             </div>
         </div>
     </div>

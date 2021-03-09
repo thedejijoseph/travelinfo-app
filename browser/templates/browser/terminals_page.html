@@ -10,7 +10,9 @@
 <body>
     <div class="small-container">
         <h4>{{terminal.name}}</h4>
-        <p><a href="/terminals/{{terminal.terminal_id}}/edit">Edit terminal</a></p>
+        <p>
+            <a href="/terminals/{{terminal.terminal_id}}/edit">Edit terminal</a>
+        </p>
 
         <div class="flex-row">
             <div class="flex-small">
@@ -23,7 +25,7 @@
             <div class="flex-small">
                 <h5>Destination terminals</h5>
                 <p>This terminal connects to the following terminals:</p>
-                {% if not terminal.dest_terminals %}
+                {% if terminal.dest_terminals.count == 0 %}
                 <p>No destination terminals yet</p>
                 {% else %}
                     <ul>
