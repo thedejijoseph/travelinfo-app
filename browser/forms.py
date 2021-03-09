@@ -27,4 +27,4 @@ class TerminalForm(forms.Form):
     mode = forms.ChoiceField(choices=get_supported_modes)
     state = forms.ChoiceField(choices=get_list_of_states)
     description = forms.CharField(widget=forms.Textarea, help_text="Describe the physical characteristics of the terminal, plus how to get there.")
-    dest_terminals = forms.MultipleChoiceField(choices=get_dest_terminals, label="Destination terminals")
+    dest_terminals = forms.MultipleChoiceField(choices=get_dest_terminals, label="Destination terminals", required=False)
