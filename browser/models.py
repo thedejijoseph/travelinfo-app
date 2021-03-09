@@ -1,14 +1,17 @@
 from django.db import models
 
+import uuid
 
 class State(models.Model):
     name = models.CharField(max_length=150)
+    state_id = models.CharField(max_length=16, blank=True)
 
     def __str__(self):
         return self.name
 
 class Terminal(models.Model):
     name = models.CharField(max_length=300)
+    terminal_id = models.UUIDField(default=uuid.uuid4, null=True)
     AIR = "air"
     ROAD = "road"
     RAIL = "rail"
