@@ -11,16 +11,33 @@
     <div class="small-container">
         <h1>Travel Info</h1>
         <p>Browse information on Nigerian interstate travel</p>
+        <a href="/terminals/new">Add new terminal</a>
 
         <div class="flex-row">
             <div class="flex-small">
                 <h3>Terminals</h3>
-                <a href="/terminals/new">Add new terminal</a>
+                {% if not terminals %}
+                    <p>No terminals have been added yet</p>
+                {% else %}
+                <ul>
+                    {% for terminal in terminals %}
+                    <li>
+                        <a href="/terminals/{{terminal.terminal_id}}">{{terminal}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
             </div>
 
             <div class="flex-small">
                 <h3>States</h3>
-                <p>Some states and their terminsals</p>
+                <ul>
+                    {% for state in states %}
+                        <li>
+                            <a href="/states/{{state.state_id}}">{{state}} - {{state.terminal_set.count}} Terminal(s)</a>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>

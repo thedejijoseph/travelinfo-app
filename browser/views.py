@@ -5,7 +5,12 @@ from .forms import TerminalForm
 from .models import Terminal, State
 
 def index(request):
-    return render(request, 'browser/index.html')
+    states = State.objects.all()
+    states = sorted(states, key=lambda s: s.terminal_set.count(), reverse=True)
+    terminals = Terminal.objects.all()
+
+    context = {'terminals': terminals, 'states': states[:12]}
+    return render(request, 'browser/index.html', context)
 
 def terminals_new(request):
     # return HttpResponseRedirect('/')
