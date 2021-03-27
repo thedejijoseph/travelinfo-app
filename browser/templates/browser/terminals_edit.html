@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Info - Edit a terminal</title>
-
-    <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css">
-</head>
-<body>
-    <div class="small-container">
+{% extends "browser/base.html" %}
+    {% block page_content %}
         <h4>Edit a terminal</h4>
 
         <div class="flex-row">
@@ -20,6 +11,4 @@
                 </form>
             </div>
         </div>
-    </div>
-</body>
-</html>
+    {% endblock %}

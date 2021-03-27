@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Info - {{state.name}}</title>
-
-    <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css">
-</head>
-<body>
-    <div class="small-container">
+{% extends "browser/base.html" %}
+    {% block page_content %}
         <h4>Travel Info on {{state.name}}</h4>
 
         <p>{{state.name}} has {{state.terminal_set.count}} terminal(s)</p>
@@ -31,6 +22,4 @@
                 <p>In a bit, we would aggregate info and tell you the states and terminals you can travel to from here</p>
             </div>
         </div>
-    </div>
-</body>
-</html>
+    {% endblock %}

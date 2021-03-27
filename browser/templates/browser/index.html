@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Info Browser</title>
-
-    <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css">
-</head>
-<body>
-    <div class="small-container">
-        <h1>Travel Info</h1>
+{% extends "browser/base.html" %}
+    {% block page_content %}
         <p>Browse information on Nigerian interstate travel</p>
         <a href="/terminals/new">Add new terminal</a> - 
         <a href="/terminals">All terminals</a> - 
@@ -17,7 +7,7 @@
 
         <div class="flex-row">
             <div class="flex-small">
-                <h3>Terminals</h3>
+                <h4>Terminals</h4>
                 {% if not terminals %}
                     <p>No terminals have been added yet</p>
                 {% else %}
@@ -32,7 +22,7 @@
             </div>
 
             <div class="flex-small">
-                <h3>States</h3>
+                <h4>States</h4>
                 <ul>
                     {% for state in states %}
                         <li>
@@ -42,6 +32,4 @@
                 </ul>
             </div>
         </div>
-    </div>
-</body>
-</html>
+    {% endblock %}

@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Info - All States</title>
-
-    <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css">
-</head>
-<body>
-    <div class="small-container">
-        <h4>Travel Info - All States</h4>
+{% extends "browser/base.html" %}
+    {% block page_content %}
+        <h4>All States</h4>
         {% for state in states %}
-        <p><a href="/states/{{state_id}}">{{state.name}}</a> has {{state.terminal_set.count}} terminal(s)</p>
+        <p><a href="/states/{{state.state_id}}">{{state.name}}</a> has {{state.terminal_set.count}} terminal(s)</p>
         {% endfor %}
-    </div>
-</body>
-</html>
+    {% endblock %}

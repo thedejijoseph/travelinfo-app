@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Info - All Terminals</title>
-
-    <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css">
-</head>
-<body>
-    <div class="small-container">
-
-    <h4>Travel Info - All Terminals</h4>
-    <a href="/terminals/new">Add new terminal</a>
+{% extends "browser/base.html" %}
+    {% block page_content %}
+        <h4>All Terminals</h4>
+        <a href="/terminals/new">Add new terminal</a>
         {% if not terminals %}
         <p>No terminals have been added yet</p>
         {% else %}
@@ -24,6 +14,4 @@
                 {% endfor %}
             </ul>
         {% endif %}
-    </div>
-</body>
-</html>
+    {% endblock %}

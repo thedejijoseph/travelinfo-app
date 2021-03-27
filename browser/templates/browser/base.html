@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Info Browser</title>
+
+    <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css">
+    <style>
+        .hide-on-small {
+            display:block;
+        }
+        /* width > 768px */
+        @media screen and (max-width: 768px){ 
+            .hide-on-small{
+                display:none;
+            }
+        }
+        /* width < 768px */
+        @media screen and (min-width: 768px){ 
+            .hide-on-small{
+                display:flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="small-container">
+        <div id="nav">
+            <div class="flex-row">
+                <div class="flex-small">
+                    <h3><a href="/">TravelInfo</a></h3>
+                </div>
+                <div class="flex-small vertical-center hide-on-small">
+                    <p>
+                        <a href="/terminals/new">Add new terminal</a> - 
+                        <a href="/terminals">All terminals</a> - 
+                        <a href="/states">All states</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        {% block page_content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
