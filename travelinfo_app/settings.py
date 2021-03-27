@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     # custom apps
     'browser',
+    'resolver',
 ]
 
 MIDDLEWARE = [
