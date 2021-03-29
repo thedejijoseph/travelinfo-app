@@ -95,3 +95,8 @@ def states_page(request, state_id):
     context = {'state': state}
     return render(request, 'browser/states_page.html', context)
 
+def about_page(request):
+    return render(request, 'browser/about_page.html')
+
+def chatbot_page(request):
+    return render(request, 'browser/chatbot.html')

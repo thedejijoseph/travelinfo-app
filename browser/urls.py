@@ -11,4 +11,6 @@ urlpatterns = [
     path('terminals', views.terminals_all),
     path('states/<str:state_id>', views.states_page),
     path('states', views.states_all),
+    path('about', views.about_page),
+    path('chatbot', views.chatbot_page),
 ]
