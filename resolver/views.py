@@ -48,10 +48,10 @@ def query(request):
         response = make_error_response(f'State with id "{dest_state_id}" does not exist')
         return response
     
-    connected_terminals = []
+    connected_terminals = {}
     for terminal in from_state.terminal_set.all():
         for dest_terminal in terminal.dest_terminals.all():
-            if dest_terminal.state == dest_state_id:
+            if dest_terminal.state.state_id == dest_state_id:
                 connected_terminals.setdefault(terminal, []).append(dest_terminal)
     
     if len(connected_terminals) > 0:
@@ -61,7 +61,7 @@ def query(request):
                 {
                     'terminal': terminal.name,
                     'description': terminal.description,
-                    'connected': [t.name for t in connected_terminals[t]]
+                    'connected': [t.name for t in connected_terminals[terminal]]
                 }
                 for terminal in connected_terminals
             ]
