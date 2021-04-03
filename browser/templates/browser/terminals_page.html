@@ -10,7 +10,7 @@
                 <p>Terminal is in <a href="/states/{{terminal.state.state_id}}">{{terminal.state}}</a></p>
                 <p><b>Transport Mode:</b> {{terminal.get_mode_display}}</p>
                 <b>Terminal description:</b>
-                <p>{{terminal.description}}</p>
+                <p>{{terminal.description | linebreaks}}</p>
             </div>
 
             <div class="flex-small">
