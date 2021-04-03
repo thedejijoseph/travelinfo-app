@@ -21,6 +21,12 @@ def make_success_response(message, data=None):
     return JsonResponse(partial_response)
 
 def query(request):
+    if not request.GET:
+        response = make_error_response(
+            "You need to provide from_state and dest_state URL parameters"
+        )
+        return response
+    
     from_state_id = request.GET.get('from_state')
     dest_state_id = request.GET.get('dest_state')
 
@@ -33,7 +39,7 @@ def query(request):
             )
             return response
     except State.DoesNotExist:
-        response = make_error_response(f'State with id "{from_state_id}" does not exist')
+        response = make_error_response(f'"from" state with id "{from_state_id}" does not exist')
         return response
     
     try:
@@ -45,7 +51,7 @@ def query(request):
             )
             return response
     except State.DoesNotExist:
-        response = make_error_response(f'State with id "{dest_state_id}" does not exist')
+        response = make_error_response(f'"dest" state with id "{dest_state_id}" does not exist')
         return response
     
     connected_terminals = {}
@@ -80,3 +86,12 @@ def query(request):
         )
         return response
 
+def state_id(request):
+    """this endpoint searches/predicts the intended state and therefore
+    state_id from a given query.
+
+    for example, given a query of ikeja, the endpoint will return a state_id
+    of -lagos-
+    """
+
+    pass

@@ -1,7 +1,7 @@
 ### !important
 This is the repo for the "data entry" part of the application. Deployed [here](https://travelinfo-staging.herokuapp.com)
 
-The repo for the "query resolver" is [here](https://github.com/wrecodde/travelinfo). Deployed [here](https://travelinfo-api-staging.herokuapp.com). Use [this](https://www.notion.so/wrecodde/API-Documentation-9fd02a5b57344d328265a6380e5437c4) for documentation.
+The repo for the "query resolver" is [here](https://github.com/wrecodde/travelinfo). Deployed [here](https://travelinfo-api-staging.herokuapp.com/resolve). Use [this](https://www.notion.so/wrecodde/API-Documentation-9fd02a5b57344d328265a6380e5437c4) for documentation.
 
 The repo for the chatbot, a type of "data retrieval" is [here](https://github.com/wrecodde/travelinfo-bot). To be deployed.
 
