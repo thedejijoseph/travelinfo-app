@@ -19,6 +19,9 @@
                         <a href="/terminals/{{terminal.terminal_id}}">{{terminal}}</a>
                     </li>
                     {% endfor %}
+                    {% if terminals|length >= 16 %}
+                    <li><a href="/terminals">..and more</a></li>
+                    {% endif %}
                 </ul>
                 {% endif %}
             </div>

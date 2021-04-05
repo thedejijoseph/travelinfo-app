@@ -23,7 +23,9 @@ def get_dest_terminals():
     return ALL_TERMINALS
 
 class TerminalForm(forms.Form):
-    name = forms.CharField(label="Terminal's name")
+    name = forms.CharField(label="Terminal's name",
+        widget=forms.TextInput(attrs={'autocomplete': 'off'})
+    )
     mode = forms.ChoiceField(choices=get_supported_modes)
     state = forms.ChoiceField(choices=get_list_of_states)
     description = forms.CharField(widget=forms.Textarea, help_text="Describe the physical characteristics of the terminal, plus how to get there.")

@@ -20,7 +20,7 @@ def index(request):
     states = sorted(states, key=lambda s: s.terminal_set.count(), reverse=True)
     terminals = Terminal.objects.all()
 
-    context = {'terminals': terminals, 'states': states[:12]}
+    context = {'terminals': terminals[:16], 'states': states[:12]}
     return render(request, 'browser/index.html', context)
 
 def terminals_new(request):
