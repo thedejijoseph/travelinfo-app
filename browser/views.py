@@ -1,8 +1,19 @@
+
+import random, string
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
+import requests
+from environs import Env
+
 from .forms import TerminalForm
 from .models import Terminal, State
+
+
+env = Env()
+env.read_env()
+
 
 def index(request):
     states = State.objects.all()
@@ -98,5 +109,29 @@ def states_page(request, state_id):
 def about_page(request):
     return render(request, 'browser/about_page.html')
 
+def random_user_id():
+    pool = string.ascii_letters + string.digits
+    return "".join(random.choices(pool, k=64))
+
 def chatbot_page(request):
-    return render(request, 'browser/chatbot.html')
+    # get direct line token
+    headers={"Authorization": f"Bearer {env.str('AZ_DIRECT_LINE_SECRET')}"}
+    data = {
+            "user": {
+                "id": random_user_id(), # ensure generation of new tokens
+                "name": "Interstate Traveller"
+            },
+            "trustedOrigins": env.list('AZ_CHATBOT_TRUSTED_ORIGINS')
+        }
+    resp = requests.post(
+        "https://directline.botframework.com/v3/directline/tokens/generate",
+        headers=headers,
+        data=data
+    )
+    payload = resp.json()
+    context = {
+            'direct_line_token': payload['token'],
+            'user_id': data['user']['id'],
+            'username': data['user']['name']
+        }
+    return render(request, 'browser/chatbot.html', context)

@@ -11,6 +11,8 @@ django = "*"
 python-dotenv = "*"
 psycopg2 = "*"
 gunicorn = "*"
+requests = "*"
+environs = "*"
 
 [requires]
 python_version = "3.8"

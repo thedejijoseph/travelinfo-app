@@ -1,6 +1,34 @@
 {% extends "browser/base.html" %}
 
     {% block page_content %}
-    <h4>..actually</h4>
-    <p>The chatbot is still under construction. A redirect will be on this URL once construction is complete.</p>
+    <p>The chatbot currently fulfills a single type of query, where you specify the origin state and destination state. Examples listed below:</p>
+    <ul>
+        <li>from <b>lagos</b> state to <b>ondo</b> state </li>
+        <li><b>fct</b> to <b>abia</b> state</li>
+        <li>bus from <b>plateau</b> state to <b>ogun</b> state</li>
+    </ul>
+    <hr/><br/><br/>
+    <div id="webchat" role="main"></div>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+    <script>
+
+       // Set style options.
+       const styleOptions = {
+          botAvatarInitials: 'TB',
+          userAvatarInitials: 'IT'
+       };
+
+       window.WebChat.renderWebChat(
+          {
+             directLine: window.WebChat.createDirectLine({
+                token: "{{ direct_line_token }}"
+             }),
+             userID: "{{ user_id}}",
+             username: "{{ username }}",
+             locale: 'en-US',
+             styleOptions
+          },
+          document.getElementById('webchat')
+       );
+    </script>
     {% endblock %}
