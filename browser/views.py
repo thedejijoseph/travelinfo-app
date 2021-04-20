@@ -132,6 +132,7 @@ def chatbot_page(request):
     context = {
             'direct_line_token': payload['token'],
             'user_id': data['user']['id'],
-            'username': data['user']['name']
+            'username': data['user']['name'],
+            'under_construction': True
         }
     return render(request, 'browser/chatbot.html', context)
